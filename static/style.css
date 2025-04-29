@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEB3B; /* Fundo amarelo */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000000; /* Fundo preto para o título */
+    color: #fff; /* Texto branco */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #fff; /* Garantindo que o título será branco */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #000; /* Mudando a cor dos títulos para preto */
+}
+
+.memes-container, .videos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.meme, .video {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.meme img, .video iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.meme-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.video iframe {
+    border-radius: 10px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* Estilos para os botões de like e visualizações */
+.video-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.view-count {
+    color: #666;
+    font-size: 14px;
+}
+
+.like-button {
+    background: #FF0000;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+}
+
+.like-count {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) { ... }
+
+/*codigo para a tela se ajustar a qualquer dispositivo movel*/
+    
+@media (max-width: 768px) {
+    /* Ajustes para tablets e celulares grandes */
+    header h1 {
+        font-size: 1.5em; /* Título menor */
+    }
+
+    nav ul li {
+        display: block; /* Menu em coluna */
+        margin: 10px 0;
+    }
+
+    .meme, .video {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 350px; /* Limita a largura máxima */
+    }
+
+    .video iframe {
+        height: 200px; /* Altura fixa para vídeos */
+    }
+
+    footer {
+        position: static; /* Remove fixação para não cobrir conteúdo */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para celulares pequenos */
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .memes-container, .videos-container {
+        gap: 15px; /* Espaçamento menor entre itens */
+    }
+
+    .meme-img {
+        height: 150px; /* Imagens um pouco menores */
+    }
+
+    .video iframe {
+        height: 180px;
+    }
+}

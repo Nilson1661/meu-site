@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde a Risada é Garantida</title>
+    <link rel="stylesheet" href="../static/style.css">
+    
+    <style>
+        .dynamic-like-btn {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .dynamic-like-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .dynamic-video-like {
+            background: #FF0000;
+            display: block;
+        }
+        .dynamic-trending {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 69, 0, 0.9);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .dynamic-reactions {
+            margin-top: 10px;
+        }
+        .dynamic-reaction-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .dynamic-views {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Memes Populares do Brasil</h1>
+        <nav>
+            <ul>
+                <li><a href="#imagens">Memes Virais em Imagens</a></li>
+                <li><a href="#videos">Memes Virais em Vídeos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="imagens">
+        <h2>Memes Mais Virais do Brasil</h2>
+        <div class="memes-container">
+            <!-- Meme 1 -->
+            <div class="meme">
+                <img class="meme-img" src="../static/jessica.jpg" alt="jessica">
+                <p><strong>Já Acabou, Jéssica?</strong> A frase que viralizou em todo o Brasil! Acompanhe a história dessa pergunta que não sai da nossa cabeça.</p>
+            </div>
+            <!-- Meme 2 -->
+            <div class="meme">
+                <img class="meme-img" src="../static/ticole.jpg" alt="ticole">
+                <p><strong>Comendo Ticolé!</strong> Um meme delicioso que conquistou a internet! Se você ainda não viu, não sabe o que está perdendo!</p>
+            </div>
+            <!-- Meme 3 -->
+            <div class="meme">
+                <img class="meme-img" src="../static/canetaazul.jpg" alt="canetaazul">
+                <p><strong>Caneta Azul</strong> O sucesso do momento! O hino do "Caneta Azul, Azul Caneta" virou um fenômeno cultural. Assista e se divirta!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Memes Virais do Brasil em Vídeos, Confira!</h2>
+        <div class="videos-container">
+            <!-- Vídeo 1 -->
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bOY3qic5_t4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>Já acabou, Jéssica? Confira esse clássico dos memes brasileiros e dê boas risadas!</p>
+                <a href="https://www.youtube.com/watch?v=bOY3qic5_t4" target="_blank">Assistir no YouTube</a>
+            </div>
+            <!-- Vídeo 2 -->
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GKcCA1PsGIw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>To comendo ticolé... Esse é um dos memes mais engraçados que se espalhou por todo o Brasil!</p>
+                <a href="https://www.youtube.com/watch?v=GKcCA1PsGIw" target="_blank">Assistir no YouTube</a>
+            </div>
+            <!-- Vídeo 3 -->
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2P_esm8cNgU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>Caneta Azul, Azul Caneta! O meme com mais repercussão no Brasil. Veja a versão completa desse sucesso!</p>
+                <a href="https://www.youtube.com/watch?v=2P_esm8cNgU" target="_blank">Assistir no YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Memes Populares do Brasil</p>
+    </footer>
+
+    <script>
+        // 1. Adiciona selos "TRENDING" aleatórios 
+        document.querySelectorAll('.meme').forEach(meme => {
+            const trendingBadge = document.createElement('div');
+            trendingBadge.className = 'dynamic-trending';
+            trendingBadge.textContent = '🔥 TRENDING';
+            trendingBadge.style.display = Math.random() < 0.3 ? 'block' : 'none';
+            meme.style.position = 'relative';
+            meme.prepend(trendingBadge);
+        });
+
+        // 2. Adiciona botões de curtida em memes 
+        document.querySelectorAll('.meme').forEach((meme, index) => {
+            const likeBtn = document.createElement('button');
+            likeBtn.className = 'dynamic-like-btn';
+            likeBtn.innerHTML = '👍 Curtir <span class="dynamic-like-count">0</span>';
+            
+            meme.appendChild(likeBtn);
+            
+            likeBtn.addEventListener('click', () => {
+                const countSpan = likeBtn.querySelector('.dynamic-like-count');
+                let count = parseInt(localStorage.getItem(`meme-like-${index}`)) || 0;
+                count++;
+                localStorage.setItem(`meme-like-${index}`, count);
+                countSpan.textContent = count;
+                likeBtn.innerHTML = '👍 Curtido! <span class="dynamic-like-count">' + count + '</span>';
+            });
+        });
+
+        // 3. Adiciona botões de curtida em vídeos 
+        document.querySelectorAll('.video').forEach((video, index) => {
+            const likeBtn = document.createElement('button');
+            likeBtn.className = 'dynamic-like-btn dynamic-video-like';
+            likeBtn.innerHTML = '👍 Curtir este vídeo <span class="dynamic-like-count">0</span>';
+            
+            video.appendChild(likeBtn);
+            
+            likeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const countSpan = likeBtn.querySelector('.dynamic-like-count');
+                let count = parseInt(localStorage.getItem(`video-like-${index}`)) || 0;
+                count++;
+                localStorage.setItem(`video-like-${index}`, count);
+                countSpan.textContent = count;
+                likeBtn.innerHTML = '👍 Curtido! <span class="dynamic-like-count">' + count + '</span>';
+            });
+        });
+
+        // 4. Adiciona contadores de visualização 
+        document.querySelectorAll('.video').forEach(video => {
+            const viewsBadge = document.createElement('div');
+            viewsBadge.className = 'dynamic-views';
+            viewsBadge.textContent = `👁️ ${(Math.floor(Math.random() * 5000) + 1000).toLocaleString()} visualizações`;
+            video.style.position = 'relative';
+            video.prepend(viewsBadge);
+        });
+
+        // 5. Adiciona reações com emojis
+        document.querySelectorAll('.meme').forEach(meme => {
+            const reactionsDiv = document.createElement('div');
+            reactionsDiv.className = 'dynamic-reactions';
+            
+            ['😂', '😍', '😮', '👍', '👎'].forEach(emoji => {
+                const btn = document.createElement('button');
+                btn.className = 'dynamic-reaction-btn';
+                btn.textContent = emoji;
+                btn.addEventListener('click', () => alert(`Você reagiu com ${emoji}!`));
+                reactionsDiv.appendChild(btn);
+            });
+            
+            meme.appendChild(reactionsDiv);
+        });
+    </script>
+</body>
+</html>
